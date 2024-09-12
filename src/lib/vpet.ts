@@ -5,10 +5,11 @@ export class Vpet {
     traits : VpetTrait[] ;
     stateMaxs : StateLimit;
     stateMins : StateLimit;
-    constructor(name: string ,  state?: VpetState, traits?: VpetTrait[] , stateMaxs?: StateLimit , stateMins? : StateLimit ){
+    constructor(name: string , stateMaxs: StateLimit , stateMins : StateLimit ,  state?: VpetState, traits?: VpetTrait[]){
         this.state = state || new VpetState ; //Sets initial state, with the VpetState constructor if no state was passed.
         this.traits = traits || [] ;
-        this.
+        this.stateMaxs = stateMaxs ;
+        this.stateMins = stateMins ;
     }
 }
 class VpetState{
@@ -16,20 +17,29 @@ class VpetState{
     hunger: number ;
     happiness: number ;
     energy: number ;
-    mood: string;
+    mood: Mood ;
 
-    constructor(hunger: number = 500, happiness: number = 1000, energy: number = 500, mood: string = 'Happy'){
+    constructor(hunger: number = 500, happiness: number = 1000, energy: number = 500, mood: Mood = Mood.Happy){
 //Max value 1000 at start. Modifiable limits by traits.
-        this.hunger
+        this.hunger = hunger ;
+        this.happiness = happiness ;
+        this.energy = energy ;
+        this.mood = mood ;
     }
+}
+enum Mood {
+    Happy = 'Happy',
+    Sad = 'Sad' ,
+    Angry = 'Angry' ,
+    Tired = 'Tired'
 }
 class StateLimit{
     hunger : number ;
-    happiness: number;
-    energy: number;
+    happiness: number ;
+    energy: number ;
 }
 class VpetTrait{
 //Physical traits like 'Horned' and its level of growth.
-    name : string;
-    level : number;
+    name : string ;
+    level : number ;
 }
