@@ -33,10 +33,16 @@ enum Mood {
     Angry = 'Angry' ,
     Tired = 'Tired'
 }
-class StateLimit{
+export class StateLimit{
     hunger : number ;
     happiness: number ;
     energy: number ;
+
+    constructor(hunger : number = 1000, happiness : number = 1000, energy : number = 1000){
+        this.hunger = hunger ;
+        this.happiness = happiness ;
+        this.energy = energy ;
+    }
 }
 class VpetTrait{
 //Physical traits like 'Horned' and its level of growth.
