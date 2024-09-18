@@ -46,6 +46,21 @@ export class StateLimit{
 }
 class VpetTrait{
 //Physical traits like 'Horned' and its level of growth.
+//Maybe move it to it's own file later, easier to implement.
     name : string ;
     level : number ;
+}
+
+
+
+//FUNCTIONS
+function logBar(level : number , max : number) : void{
+//Logs a pipe based bar, showing 1 bar for every 100 levels between 0 and max.
+//Pre: max must be a higher number than level.
+    let bars : string = "";
+    for(level ; max > 0 ; max - 100 ){
+        bars = bars + "|";
+    }
+    bars = "[" + bars + "]"
+console.log(bars);
 }
