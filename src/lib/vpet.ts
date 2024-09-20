@@ -6,6 +6,7 @@ export class Vpet {
     stateMaxs : StateLimit;
     stateMins : StateLimit;
     constructor(name: string , stateMaxs: StateLimit , stateMins : StateLimit ,  state?: VpetState, traits?: VpetTrait[]){
+        this.name = name;
         this.state = state || new VpetState ; //Sets initial state, with the VpetState constructor if no state was passed.
         this.traits = traits || [] ;
         this.stateMaxs = stateMaxs ;
