@@ -1,3 +1,3 @@
-./src/main.js
-./src/lib/vpet.js
-./src/lib/needs.js
+src/main.js
+src/lib/vpet.js
+src/lib/needs.js
