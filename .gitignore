@@ -1,3 +1,5 @@
 src/main.js
 src/lib/vpet.js
 src/lib/needs.js
+src/node_modules/
+src/*.json
