@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES6",           // Puede ser ES6 o superior (ESNext o ES2020)
+    "module": "ES6",        // Esto configura los módulos para que sean ES Modules
+    "moduleResolution": "node", // Opcional, para la resolución de módulos
+    "outDir": "./src/bin/",        // Donde se generarán los archivos compilados
+    "esModuleInterop": true,   // Ayuda a que TypeScript sea más compatible con CommonJS
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
+  }
+}
+

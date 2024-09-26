@@ -1,4 +1,4 @@
-import * as vpet from '../lib/vpet'
+import  {Vpet} from '../lib/vpet'
 export enum food{
     Meat = 50,
     Carrot = 25,
@@ -16,7 +16,7 @@ function adjustState() : void {
     this.state.energy = Math.min(this.stateMaxs.energy, Math.max(this.stateMins.energy, this.state.energy));
   }
   */
-  function feed(pet : vpet.Vpet , food : food) : void {
+  function feed(pet : Vpet , food : food) : void {
 //Adds the food value to the vpet hunger.
     pet.state.hunger += food ;
     if (pet.state.hunger > pet.stateMaxs.hunger){
@@ -24,7 +24,7 @@ function adjustState() : void {
     }
   }
   
-  function sleep(pet : vpet.Vpet) :void {
+  function sleep(pet : Vpet) :void {
 //Adds 100 to the vpet energy.
     pet.state.energy += 100;
     if(pet.state.energy > pet.stateMaxs.energy){

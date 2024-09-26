@@ -1,5 +1,3 @@
-src/main.js
-src/lib/vpet.js
-src/lib/needs.js
-src/node_modules/
+src/bin/*.js
+src/bin/lib/*.js
 src/*.json

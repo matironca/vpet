@@ -50,32 +50,41 @@ class VpetTrait{
 //Maybe move it to it's own file later, easier to implement.
     name : string ;
     level : number ;
+    constructor(name : string , level : number){
+        this.name = name;
+        this.level = level;
+    }
 }
 
 
 
 //FUNCTIONS
-export function logBar(level : number , max : number) : void{
+export function logBar(level : number , max : number) : string{
 //Logs a pipe based bar, showing 1 bar for every 100 levels between 0 and max.
 //Pre: max must be a higher number than level.
     let bars : string = "";
     let empty : string = "";
-    for(level ; max > 0 && max > level ; max = max - 100 ){
+    while(max > 0 && max > level ){
         empty = empty + "-";
+        max = max - 100 ;
     }
-    for(level ; max > 0; max = max - 100 ){
+    while(max > 0 ){
         bars = bars + "|";
+        max = max - 100 ;
     }
     bars = "[" + bars + empty + "]"
-console.log(bars);
+    console.log(bars);
+return bars;
 }
 
-export function showState(pet : Vpet){
+export function showState(pet : Vpet) : string {
 //Logs out the State of 'pet' in a bar format.
 console.log('Hunger:');
-    logBar(pet.state.hunger, pet.stateMaxs.hunger);
+    let a = logBar(pet.state.hunger, pet.stateMaxs.hunger);
 console.log('Energy:');
-    logBar(pet.state.energy, pet.stateMaxs.energy);
+    let b = logBar(pet.state.energy, pet.stateMaxs.energy);
 console.log('Happiness:');
-    logBar(pet.state.happiness, pet.stateMaxs.happiness);
+    let c = logBar(pet.state.happiness, pet.stateMaxs.happiness);
+    let ret = a + b + c;
+    return ret;
 }
