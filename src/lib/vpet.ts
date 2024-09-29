@@ -85,6 +85,6 @@ console.log('Energy:');
     let b = logBar(pet.state.energy, pet.stateMaxs.energy);
 console.log('Happiness:');
     let c = logBar(pet.state.happiness, pet.stateMaxs.happiness);
-    let ret = a + b + c;
+    let ret = "Hunger: " + a + " " + "Energy: " + b + " " + "Happiness: " + c;
     return ret;
 }
