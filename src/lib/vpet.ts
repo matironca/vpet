@@ -1,3 +1,4 @@
+import { needsRatio } from "./needs";
 export class Vpet {
 //Virtual pet class, no much to explain yet.
     name : string ;
@@ -5,12 +6,14 @@ export class Vpet {
     traits : VpetTrait[] ;
     stateMaxs : StateLimit;
     stateMins : StateLimit;
-    constructor(name: string , stateMaxs: StateLimit , stateMins : StateLimit ,  state?: VpetState, traits?: VpetTrait[]){
+   // ratios : needsRatio;
+    constructor(name: string , stateMaxs: StateLimit , stateMins : StateLimit ,  state?: VpetState, traits?: VpetTrait[] /*, ratios? : needsRatio*/){
         this.name = name;
         this.state = state || new VpetState ; //Sets initial state, with the VpetState constructor if no state was passed.
         this.traits = traits || [] ;
         this.stateMaxs = stateMaxs ;
         this.stateMins = stateMins ;
+ //       this.ratios = ratios || new needsRatio ;
     }
 }
 class VpetState{
