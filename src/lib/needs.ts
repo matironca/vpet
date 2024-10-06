@@ -25,13 +25,23 @@ export class needsRatio{
     }
   }
   
-  export function sleep(pet : Vpet) :void {
+  export function sleep(pet : Vpet) : void {
 //Adds 100 to the vpet energy.
-    pet.state.energy += 100;
+    pet.state.energy = pet.stateMaxs.energy;
     if(pet.state.energy > pet.stateMaxs.energy){
         pet.state.energy = pet.stateMaxs.energy;
     }
   }
+  export async function sleepV2(pet : Vpet) {
+    //Adds 100 to the vpet energy.
+        while(pet.state.energy < pet.stateMaxs.energy){
+          pet.state.energy = pet.state.energy + 100;
+          if(pet.state.energy <pet.stateMaxs.energy){
+            await wait(3);
+          }
+        }
+      }
+    
 
   export async function passTime(pet : Vpet , ratio1 : number , ratio2: number , ratio3 : number){
 //Reduces a pet state value constantly.
@@ -41,14 +51,14 @@ export class needsRatio{
       pet.state.hunger = pet.state.hunger - 25 * ratio1;
       }
       if(pet.state.energy > 0){
-      pet.state.energy = pet.state.energy;
+      pet.state.energy = pet.state.energy - 10*ratio2;
       }
       if(pet.state.happiness > 0 && (pet.state.hunger < pet.stateMaxs.hunger/2 || pet.state.energy < pet.stateMaxs.energy/2)){
         pet.state.happiness = pet.state.happiness - 25 * ratio3;
-        }
-        else if (pet.state.hunger >= pet.stateMaxs.hunger/2 && pet.state.energy >= pet.stateMaxs.energy/2){
+      }
+      else if (pet.state.hunger >= pet.stateMaxs.hunger/2 && pet.state.energy >= pet.stateMaxs.energy/2){
         pet.state.happiness = pet.state.happiness + 25 * ratio3;
-        }
+      }
       await wait(1);
     }
 }
