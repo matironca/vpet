@@ -76,7 +76,7 @@ export function logBar(level : number , max : number) : string{
         max = max - 100 ;
     }
     bars = "[" + bars + empty + "]"
-    console.log(bars);
+//    console.log(bars);
 return bars;
 }
 
