@@ -62,8 +62,8 @@ class VpetTrait{
 
 
 //FUNCTIONS
-export function logBar(level : number , max : number) : string{
-//Logs a pipe based bar, showing 1 bar for every 100 levels between 0 and max.
+export function getStatusBar(level : number , max : number) : string{
+//Returns a pipe based bar, showing 1 bar for every 100 levels between 0 and max.
 //Pre: max must be a higher number than level.
     let bars : string = "";
     let empty : string = "";
@@ -83,11 +83,11 @@ return bars;
 export function showState(pet : Vpet) : string {
 //Logs out the State of 'pet' in a bar format.
 console.log('Hunger:');
-    let a = logBar(pet.state.hunger, pet.stateMaxs.hunger);
+    let a = getStatusBar(pet.state.hunger, pet.stateMaxs.hunger);
 console.log('Energy:');
-    let b = logBar(pet.state.energy, pet.stateMaxs.energy);
+    let b = getStatusBar(pet.state.energy, pet.stateMaxs.energy);
 console.log('Happiness:');
-    let c = logBar(pet.state.happiness, pet.stateMaxs.happiness);
+    let c = getStatusBar(pet.state.happiness, pet.stateMaxs.happiness);
     let ret = "Hunger: " + a + " " + "Energy: " + b + " " + "Happiness: " + c;
     return ret;
 }
