@@ -55,7 +55,7 @@ window.onload = function(){
     let sleeping : boolean = false;
 
     if(petCreated = true){
-        if (sleeping = false){
+        if (sleeping == false){
             passTime(pet, 1,0,1);
         }
         else{
