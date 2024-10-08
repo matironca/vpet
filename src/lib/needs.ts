@@ -34,7 +34,7 @@ export class needsRatio{
     }
   }
   export async function sleepV2(pet : Vpet) {
-    //Adds 100 to the vpet energy.
+      //Gradually increases the pet's Energy
         while(pet.state.energy < pet.stateMaxs.energy){
           pet.state.energy = pet.state.energy + 100;
           if(pet.state.energy <pet.stateMaxs.energy){
@@ -61,6 +61,11 @@ export async function passTime(pet : Vpet , ratio1 : number , ratio2: number , r
         pet.state.happiness = pet.state.happiness + 25 * ratio3;
       }
       await wait(1);
+<<<<<<< HEAD
   }
 }
 
+=======
+    }
+}
+>>>>>>> 71706a4a30f4b8affa74c7f2c5692284b6758e1b
