@@ -1,7 +1,11 @@
-import { feed, passTime , food, sleep , sleepV2  } from './lib/needs.js';
+import { feed, passTime , food, sleepV2  } from './lib/needs.js';
 import {Vpet , showState , StateLimit} from './lib/vpet.js'
 import { wait } from './lib/tools.js';
-
+//Start pet
+let petCreated : boolean = false;
+let pet : Vpet | null = createPet();
+export let sleeping :number = 0;
+petCreated = true; 
 //Functions
 async function updateState(pet:Vpet , divText : HTMLElement | null) {
 //Updates the state bars
@@ -38,9 +42,9 @@ window.onload = function(){
         sleepButton.addEventListener('click', async () => {
             sleepButton.disabled = true;
             feedButton.disabled = true;
-            sleeping = true;
+            sleeping = 1;
             await sleepV2(pet);
-            sleeping = false;
+            sleeping = 0;            
             sleepButton.disabled = false;
             feedButton.disabled = false;
 
@@ -49,17 +53,11 @@ window.onload = function(){
 }
 
 //Main code
-    let petCreated : boolean = false;
-    let pet : Vpet | null = createPet();
-    petCreated = true; 
-    let sleeping : boolean = false;
 
-    if(petCreated = true){
-        if (sleeping == false){
-            passTime(pet, 1,0,1);
-        }
-        else{
+
+    if(petCreated == true){
+        
         passTime(pet, 1,1,1);
-        }
+        
         updateState(pet , null);
     }

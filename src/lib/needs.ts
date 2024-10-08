@@ -1,5 +1,6 @@
 import  {Vpet} from '../lib/vpet.js'
-import { wait } from './tools.js';
+import { wait  } from './tools.js';
+import { sleeping } from '../main.js';
 export enum food{
     Meat = 500,
     Carrot = 250,
@@ -43,14 +44,14 @@ export class needsRatio{
       }
     
 
-  export async function passTime(pet : Vpet , ratio1 : number , ratio2: number , ratio3 : number){
+export async function passTime(pet : Vpet , ratio1 : number , ratio2: number , ratio3 : number){
 //Reduces a pet state value constantly.
 //For testing it only applies to hunger right now.
-    while(pet){
+  while(pet){
       if(pet.state.hunger > 0){
-      pet.state.hunger = pet.state.hunger - 25 * ratio1;
+      pet.state.hunger = pet.state.hunger - 15 * ratio1;
       }
-      if(pet.state.energy > 0){
+      if(pet.state.energy > 0 && sleeping == 0){
       pet.state.energy = pet.state.energy - 10*ratio2;
       }
       if(pet.state.happiness > 0 && (pet.state.hunger < pet.stateMaxs.hunger/2 || pet.state.energy < pet.stateMaxs.energy/2)){
@@ -60,5 +61,6 @@ export class needsRatio{
         pet.state.happiness = pet.state.happiness + 25 * ratio3;
       }
       await wait(1);
-    }
+  }
 }
+

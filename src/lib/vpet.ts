@@ -81,12 +81,9 @@ return bars;
 }
 
 export function showState(pet : Vpet) : string {
-//Logs out the State of 'pet' in a bar format.
-console.log('Hunger:');
+//Returns the State of 'pet' in a bar format.
     let a = getStatusBar(pet.state.hunger, pet.stateMaxs.hunger);
-console.log('Energy:');
     let b = getStatusBar(pet.state.energy, pet.stateMaxs.energy);
-console.log('Happiness:');
     let c = getStatusBar(pet.state.happiness, pet.stateMaxs.happiness);
     let ret = "Hunger: " + a + " " + "Energy: " + b + " " + "Happiness: " + c;
     return ret;
